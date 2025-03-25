@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-
 typedef struct {
     int nilai;
 } infotype;
@@ -19,6 +18,8 @@ typedef struct tElmtList {
 
 typedef address List;
 
+void Alokasi(address *p, infotype data);
+void Dealokasi(address *p);
 bool isEmpty(List L);
 void InsertFirst(List *L, infotype X);
 void DeleteFirst(List *L, infotype *X);

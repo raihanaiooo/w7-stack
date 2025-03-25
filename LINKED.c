@@ -1,27 +1,37 @@
 #include "linked.h"
 #include "stack.h"
 
-bool isEmpty(List L)
-{
+void Alokasi(address *p, infotype data) { 
+    *p = (address)malloc(sizeof(ElmtList)); 
+    if (*p != NULL) {
+        (*p)->info = data;
+        (*p)->next = NULL;
+    }   
+}
+
+void Dealokasi(address *p) {
+    free(*p);
+    *p = NULL;
+}
+
+bool isEmpty(List L) {
     return (L == NULL);
 }
 
-void InsertFirst(List *L, infotype X)
-{
-    address P = (address)malloc(sizeof(ElmtList));
+void InsertFirst(List *L, infotype X) {
+    address P;
+    Alokasi(&P, X); 
     if (P != NULL) {
-        P->info = X;
         P->next = *L;
-        SetTop(L, P);  // Menggunakan SetTop untuk memperbarui TOP
+        SetTop(L, P); 
     }
 }
 
-void DeleteFirst(List *L, infotype *X)
-{
+void DeleteFirst(List *L, infotype *X) {
     if (!isEmpty(*L)) {
         address P = *L;
         *X = P->info;
-        SetTop(L, P->next); 
-        free(P);
+        SetTop(L, P->next);
+        Dealokasi(&P);
     }
 }
