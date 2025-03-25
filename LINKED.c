@@ -1,11 +1,6 @@
 #include "linked.h"
 #include "stack.h"
 
-void CreateList(List *L)
-{
-    *L = NULL;
-}
-
 bool isEmpty(List L)
 {
     return (L == NULL);

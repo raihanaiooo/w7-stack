@@ -19,7 +19,6 @@ typedef struct tElmtList {
 
 typedef address List;
 
-void CreateList(List *L);
 bool isEmpty(List L);
 void InsertFirst(List *L, infotype X);
 void DeleteFirst(List *L, infotype *X);
